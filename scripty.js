@@ -13,7 +13,13 @@ function addNumberButtonSelection(){
     numberButtons.forEach((number) => {
         number.addEventListener('click', ()=>{
             selectedNumber = number.textContent;
-            constructedNumber = constructedNumber.concat(selectedNumber.toString());
+            if (selectedNumber === '.') {
+                if (!constructedNumber.includes('.')) {
+                    constructedNumber = constructedNumber.concat(selectedNumber.toString());
+                }
+            } else {
+                constructedNumber = constructedNumber.concat(selectedNumber.toString());
+            }
 
             display.textContent = constructedNumber;
             
@@ -75,6 +81,9 @@ function addClearButton(){
         runningDisplay.textContent = runningTotal;
     });
 }
+
+
+
 
 
 function spinItUp(){
